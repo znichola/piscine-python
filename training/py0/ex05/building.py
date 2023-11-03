@@ -1,10 +1,10 @@
 import sys
 
-sys.tracebacklimit = 0
-
 
 def main():
     '''Count the types of characters in a string'''
+
+    sys.tracebacklimit = 0
 
     if (len(sys.argv) == 1):
         for line in sys.stdin:
