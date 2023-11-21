@@ -23,3 +23,4 @@
  
  - https://py-pkgs.org/03-how-to-package-a-python#a-brief-introduction
  - https://stackoverflow.com/questions/15746675/how-to-write-a-python-module-package#comment77240793_33770042
+ - https://packaging.python.org/en/latest/tutorials/packaging-projects/
