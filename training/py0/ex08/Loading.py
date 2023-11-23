@@ -1,10 +1,14 @@
 import sys
+import os
 
 
 def ft_tqdm(lst: range) -> None:
     '''show a progress bar implemented using an iterator & generator'''
 
-    length = 65
+    print(os.get_terminal_size())
+    term = os.get_terminal_size()
+
+    length = term.columns - 39
     total = len(lst)
 
     i = 1

@@ -2,3 +2,4 @@
 .env
 subject
 *__pycache__
+dist
