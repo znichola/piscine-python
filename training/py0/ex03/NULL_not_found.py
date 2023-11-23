@@ -7,14 +7,14 @@ def NULL_not_found(object: any) -> int:
     elif (type(object) == type(0)):
         print('Zero:', end=' ')
     elif (type(object) == type("")):
-        if (object == "Brian"):
+        if (len(object) > 0):
             print("Type not found")
-            return 1
+            return 2
         print('Empty:', end=' ')
     elif (type(object) == type(False)):
         print('Fake:', end=' ')
     else:
         print("Type not found")
-        return 1
+        return 2
     print(f'{object} {type(object)}')
     return 0
