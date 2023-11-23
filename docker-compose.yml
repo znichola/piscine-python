@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  app:
+    container_name: py
+    build:
+      dockerfile: Dockerfile
+
+    volumes:
+      - .:/app
+
+    command: sleep infinity
+
+    init: true
