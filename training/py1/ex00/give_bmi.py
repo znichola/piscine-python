@@ -3,6 +3,8 @@ def give_bmi(
     height: list[int | float],
     weight: list[int | float]
 ) -> list[int | float]:
+    '''calculate bmi from a list of height and weight'''
+
     if len(height) != len(weight):
         raise ValueError("Height and weight lists must be of the same size")
     if not all(isinstance(x, (int, float)) for x in height):
@@ -13,6 +15,8 @@ def give_bmi(
 
 
 def apply_limit(bmi: list[int | float], limit: int) -> list[bool]:
+    '''apply a limit to list'''
+
     if not all(isinstance(x, (int, float)) for x in bmi):
         raise ValueError("All elements in bmi must be integers or floats")
     if not isinstance(limit, int):
