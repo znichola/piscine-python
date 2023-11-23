@@ -10,8 +10,8 @@ def slice_me(family: list, start: int, end: int) -> list:
     print(f"My shape is: ({len(family)}, {sub_size})")
 
     trunc = family[start:end]
-    sub_size = len(trunc[0]) if trunc else 0
 
+    sub_size = len(trunc[0]) if trunc else 0
     print(f"My new shape is: ({len(trunc)}, {sub_size})")
 
     return trunc

@@ -5,7 +5,8 @@ RUN pip install --no-cache-dir \
     pylint \
     flake8 \
     tqdm \
-    build
+    build \
+    matplotlib
 
 RUN apt-get update && apt-get install -y zsh
 
