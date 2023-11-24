@@ -1,7 +1,11 @@
 {
     "cSpell.words": [
+        "POSIX",
         "tqdm",
         "tracebacklimit",
+        "venv",
         "Zivkovic"
-    ]
+    ],
+    "python.analysis.typeCheckingMode": "basic",
+    "python.analysis.autoImportCompletions": true,
 }
