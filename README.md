@@ -19,17 +19,17 @@ This is the proper way to do python dev I think.
 Create a venv with this command, at the root of the project, in folder venv
 
 ```bash
-python -m venv venv
+python -m venv .venv
 ```
 
 Now to activate the venv when on POSIX
 ```bash
-source venv/bin/activate
+source .venv/bin/activate
 ```
 
-Set vscode to use the venv we just created, `cmd + shift + p` then `>Python: select interpreter`, now `/training/py1/venv` for instance.
+Set vscode to use the venv we just created, `cmd + shift + p` then `>Python: select interpreter`, now `/training/py1/.venv` for instance.
 
-Installing from requirments file, ofc should be from `venv`
+Installing from requirments file, ofc should be from the `venv`
 ```bash
 pip instal -r requirments
 ```
