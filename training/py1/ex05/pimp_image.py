@@ -1,7 +1,5 @@
 # https://matplotlib.org/stable/tutorials/images.html
 
-from load_image import ft_load
-import matplotlib.pyplot as plt
 import numpy as np
 
 
@@ -37,7 +35,7 @@ def ft_blue(array: np.ndarray) -> np.ndarray:
 
 def ft_grey(array: np.ndarray) -> np.ndarray:
     '''Convert to geryscale the image received.'''
-    
+
     def only_grey(a, axis=0):
         '''Only grey'''
         # G*.59+R*.3+B*.11

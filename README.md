@@ -31,7 +31,12 @@ Set vscode to use the venv we just created, `cmd + shift + p` then `>Python: sel
 
 Installing from requirments file, ofc should be from the `venv`
 ```bash
-pip instal -r requirments
+pip install -r requirments.txt
+```
+
+Make the requirmet file
+```
+pip freeze >requirments.txt
 ```
 
 ## python for data science - training for piscine
