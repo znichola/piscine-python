@@ -1,4 +1,3 @@
-from xml.dom import Node
 from load_image import ft_load
 from pimp_image import ft_invert, ft_red, ft_green, ft_blue, ft_grey
 import matplotlib.pyplot as plt
@@ -8,6 +7,7 @@ print(ft_invert.__doc__)
 
 
 def plot(img: np.ndarray) -> None:
+    '''print image info, and plot it'''
     print(img)
     plt.imshow(img)
     plt.show()
