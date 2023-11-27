@@ -12,7 +12,6 @@ def main():
         print("--------")
 
         final = img.squeeze()
-        print(f"shape {final.shape}")
         shape = np.shape(final)
         n = np.empty((shape[1], shape[0]))
         for i, a in enumerate(final):
