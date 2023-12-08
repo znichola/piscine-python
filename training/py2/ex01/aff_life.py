@@ -9,7 +9,13 @@ def main():
     the population growth chart for Switserland
     '''
     data: pd.DataFrame = load("../doc/life_expectancy_years.csv")
-    assert data is not None, "Error with datafile.csv"
+    if data is None:
+        print("Error with loading file")
+        exit(1)
+    if ('country' not in data.columns or
+            'Switzerland' not in data['country'].unique()):
+        print("Error: Data does not have a country or Switzerland field")
+        exit(1)
 
     data = data.set_index("country").T
     print(data.head())
