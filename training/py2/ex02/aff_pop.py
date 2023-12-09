@@ -5,8 +5,8 @@ import matplotlib.pyplot as plt
 
 def main():
     '''
-    Load data from fixed file and displa
-    the population growth chart for Switserland
+    Load data from fixed file and display
+    the population for Switserland and Eswatini
     '''
     data: pd.DataFrame = load("../doc/population_total.csv")
     if data is None:
