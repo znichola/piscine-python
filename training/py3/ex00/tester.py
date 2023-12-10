@@ -15,4 +15,4 @@ print(Lyanna.__dict__)
 try:
     hodor = Character("hodor")
 except Exception as e:
-    print(f"Caught erronious class stuff: {e}")
+    print(f"\nCaught erronious class stuff: {e}")
