@@ -11,9 +11,19 @@ class Baratheon(Character):
         self.eyes = "brown"
         self.hairs = "dark"
 
+    # @property
+    # def props(self):
+    #     return str(tuple([x for v, x in vars(Baratheon).items() if
+    #                       not v.startswith("_") and not callable(x)]))
+
     def __str__(self) -> str:
-        return "foobar"
-        # return str(list(vars(self).values()))
+        repr = str(tuple([x for v, x in self.__dict__]))
+        return "Vector: " + repr
+
+    def __repr__(self) -> str:
+        repr = str(
+            tuple([y for x, y in self.__dict__.items() if x not in ["is_alive", "first_name"]]))
+        return "Vector: " + repr
 
     def die(self) -> None:
         '''Dead the Baratheon, something bloody preferably'''
@@ -34,6 +44,17 @@ class Lannister(Character):
         '''Dead the Lannister, something bloody preferably'''
         self.is_alive = False
 
-    def create_lannister(first_name, is_alive=True):
+    @classmethod
+    def create_lannister(self, first_name, is_alive=True):
         '''Create a new Lannister'''
         return Lannister(first_name, is_alive)
+
+    def __str__(self) -> str:
+        repr = str(tuple([x for v, x in vars(Baratheon).items() if
+                          not v.startswith("_") and not callable(x)]))
+        return "Vector: " + repr
+
+    def __repr__(self) -> str:
+        repr = str(tuple([x for v, x in vars(Baratheon).items() if
+                          not v.startswith("_") and not callable(x)]))
+        return "Vector: " + repr
