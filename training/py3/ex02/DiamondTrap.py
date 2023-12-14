@@ -5,23 +5,26 @@ class King(Baratheon, Lannister):
 
     def __init__(self, first_name, is_alive=True):
         """Initializes the king, a cross between a Barathon and Lannister"""
+        Baratheon.__init__(self, first_name, is_alive)
         super().__init__(first_name, is_alive)
         self.eyes = "brown"  # Default values
-        self.hair = "dark"
+        self.hairs = "dark"
 
-    # @property
-    # def eyes(self) -> str:
-    #     return self.eyes
+    @property
+    def eyes(self) -> str:
+        return self._eyes
 
     # @property
     # def hairs(self) -> str:
     #     return self.hairs
 
-    # @eyes.setter
-    # def eyes(self, eyes) -> None:
-    #     if not isinstance(eyes, str):
-    #         raise TypeError("name must be a string")
-    #     self.eyes = eyes
+    @eyes.setter
+    def eyes(self, new_eyes) -> None:
+        # if new_eyes == self.eyes:
+        #     return
+        # if not isinstance(new_eyes, str):
+        #     raise TypeError("name must be a string")
+        self._eyes = new_eyes
 
     # @eyes.getter
     # def eyes(self) -> str:
