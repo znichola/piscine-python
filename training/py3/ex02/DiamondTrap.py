@@ -5,49 +5,24 @@ class King(Baratheon, Lannister):
 
     def __init__(self, first_name, is_alive=True):
         """Initializes the king, a cross between a Barathon and Lannister"""
-        Baratheon.__init__(self, first_name, is_alive)
         super().__init__(first_name, is_alive)
-        self.eyes = "brown"  # Default values
-        self.hairs = "dark"
 
-    @property
-    def eyes(self) -> str:
-        return self._eyes
+    def get_eyes(self) -> str:
+        "Getter for eye color"
+        print("this was called!")
+        return self.eyes
 
-    # @property
-    # def hairs(self) -> str:
-    #     return self.hairs
+    def set_eyes(self, color: str) -> None:
+        "Setter for eye color"
+        self.eyes = color
 
-    @eyes.setter
-    def eyes(self, new_eyes) -> None:
-        # if new_eyes == self.eyes:
-        #     return
-        # if not isinstance(new_eyes, str):
-        #     raise TypeError("name must be a string")
-        self._eyes = new_eyes
+    def get_hairs(self) -> str:
+        "Getter for hair color"
+        return self.hairs
 
-    # @eyes.getter
-    # def eyes(self) -> str:
-    #     return self.eyes
+    def set_hairs(self, color) -> None:
+        "Setter for hair color"
+        self.hairs = color
 
-    # @hairs.setter
-    # def hairs(self, hairs) -> None:
-    #     if not isinstance(hairs, str):
-    #         raise TypeError("hair must be a string")
-    #     self.hairs = hairs
-
-    # @hairs.getter
-    # def hairs(self) -> str:
-    #     return self.hairs
-
-    # def set_eyes(self, eyes) -> None:
-    #     self.eyes = eyes
-
-    # def set_hairs(self, hairs) -> None:
-    #     self.hairs = hairs
-
-    # def get_eyes(self) -> str:
-    #     return self.eyes
-
-    # def get_hairs(self) -> str:
-    #     return self.hairs
+    property(get_eyes, set_eyes, doc="Proptery for eye color")
+    property(get_hairs, set_hairs, doc="Proptery for hair color")
