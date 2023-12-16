@@ -9,20 +9,20 @@ class King(Baratheon, Lannister):
 
     def get_eyes(self) -> str:
         "Getter for eye color"
-        print("this was called!")
-        return self.eyes
+        # print("this was called!")
+        return self._eyes
 
     def set_eyes(self, color: str) -> None:
         "Setter for eye color"
-        self.eyes = color
+        self._eyes = color
 
     def get_hairs(self) -> str:
         "Getter for hair color"
-        return self.hairs
+        return self._hairs
 
     def set_hairs(self, color) -> None:
         "Setter for hair color"
-        self.hairs = color
+        self._hairs = color
 
-    property(get_eyes, set_eyes, doc="Proptery for eye color")
-    property(get_hairs, set_hairs, doc="Proptery for hair color")
+    eyes = property(get_eyes, set_eyes, doc="Proptery for eye color")
+    hairs = property(get_hairs, set_hairs, doc="Proptery for hair color")
