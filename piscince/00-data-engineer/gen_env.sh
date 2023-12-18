@@ -1,14 +1,23 @@
 #!/bin/bash
 
-read -p "Enter desired db password : " password
+read -p "Enter desired db password : " pgpassword
 
-if [ -z "$password" ]; then
-    echo "Password can't be empty, bye"
+if [ -z "$pgpassword" ]; then
+    echo "pgPassword can't be empty, bye"
+    exit 42
+fi
+
+read -p "Enter desired admire password : " adpassword
+
+if [ -z "$adpassword" ]; then
+    echo "adpassword can't be empty, bye"
     exit 42
 fi
 
 printf "#auto generated with gen_env.sh
 POSTGRES_DB=piscineds
 POSTGRES_USER=znichola
-POSTGRES_PASSWORD=$password
+POSTGRES_PASSWORD=$pgpassword
+PGADMIN_DEFAULT_EMAIL=znichola@42.ch
+PGADMIN_DEFAULT_PASSWORD=$adpassword
 " > .env
