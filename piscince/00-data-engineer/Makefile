@@ -17,3 +17,10 @@ fclean : env-clean
 	docker network rm $(shell docker network ls -q)  $(TIDY)
 	docker image rm   $(shell docker image ls -q)    $(TIDY)
 	docker volume rm  $(shell docker volume ls -q)   $(TIDY)
+
+env :
+	./gen_env.sh
+
+dl_data :
+	./download_data.sh
+
