@@ -21,8 +21,8 @@ fclean : env-clean
 env :
 	./gen_env.sh
 
-dl_data :
+download :
 	./download_data.sh
 
-db :
+exec_db :
 	docker exec -it postgres psql -U znichola -d piscineds -h localhost -W
