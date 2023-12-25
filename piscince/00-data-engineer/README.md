@@ -45,6 +45,11 @@ Delete many tables
 DROP TABLE IF EXISTS data_2022_dec, data_2022_nov, data_2022_oct, data_2023_jan CASCADE;
 ```
 
+Select rows that are not null
+```psql
+SELECT * FROM item WHERE category_code IS NOT NULL LIMIT 10
+```
+
 Copy a csv file to a table
 ```pqsl
 COPY data_2022_dec FROM '/subject/customer/data_2022_dec.csv' (FORMAT csv, HEADER);
