@@ -40,6 +40,11 @@ Delete a table
 DROP TABLE data_2022_dec CASCADE;
 ```
 
+Delete many tables
+```psql
+DROP TABLE IF EXISTS data_2022_dec, data_2022_nov, data_2022_oct, data_2023_jan CASCADE;
+```
+
 Copy a csv file to a table
 ```pqsl
 COPY data_2022_dec FROM '/subject/customer/data_2022_dec.csv' (FORMAT csv, HEADER);
