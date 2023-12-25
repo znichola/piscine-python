@@ -28,27 +28,3 @@ COPY $table_name FROM '/subject/customer/${table_name}.csv' (FORMAT csv, HEADER)
 "
 done
 
-# Add Items data
-item_data=($(ls ../subject/item | cut -f 1 -d '.' -))
-
-for table_name in "${item_data[@]}"; do
-
-echo "Create table ${table_name}"
-
-# product_id,category_id,category_code,brand
-
-docker exec -e PASSWORD=$POSTGRES_PASSWORD \
-    postgres psql \
-        -U znichola \
-        -d piscineds \
-        -h localhost \
-        -c "
-CREATE TABLE ${table_name} (
-    product_id INTEGER NOT NULL,
-    category_id BIGINT,
-    category_code VARCHAR(255),
-    brand VARCHAR(255)
-);
-COPY $table_name FROM '/subject/item/${table_name}.csv' (FORMAT csv, HEADER);
-"
-done
