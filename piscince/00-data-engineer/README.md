@@ -10,3 +10,44 @@ Creation of a DB
 - then create a new database, use the database credentials from the .env
 - use the ip adress of the container, find it with `make ip`
 - `./download_data.sh` to get the data for the project
+
+## Docker commands
+
+Copy local file to the container
+```bash
+docker cp ../subject/customer/data_2022_oct.csv postgres:/home/file.csv
+```
+
+## PostgreSQL commands
+
+List the tables in the db
+```pqsl
+\dt
+```
+
+Show only 10 rows from the table
+```psql
+SELECT * FROM data_2022_dec LIMIT 10;
+```
+
+Delete the contents of a table
+```paql
+TRUNCATE data_2022_dec;
+```
+
+Delete a table
+```psql
+DROP TABLE data_2022_dec CASCADE;
+```
+
+Copy a csv file to a table
+```pqsl
+COPY data_2022_dec FROM '/subject/customer/data_2022_dec.csv' (FORMAT csv, HEADER);
+```
+COPY vs /copy Do not confuse COPY with the psql instruction \copy. \copy invokes COPY FROM STDIN or COPY TO STDOUT, and then fetches/stores the data in a file accessible to the psql client. Thus, file accessibility and access rights depend on the client rather than the server when \copy is used.
+`WITH (FORMAT csv, HEADER)`: `FORMAT` used to select csv parsing `HEADER` sets header to true, ignores the first line
+
+Count the number of rown in the table
+```pqsl
+SELECT COUNT(*) FROM data_2022_dec;
+```

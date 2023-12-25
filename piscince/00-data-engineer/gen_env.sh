@@ -16,8 +16,8 @@ fi
 
 printf "#auto generated with gen_env.sh
 POSTGRES_DB=piscineds
-POSTGRES_USER=znichola
+POSTGRES_USER=$USER
 POSTGRES_PASSWORD=$pgpassword
-PGADMIN_DEFAULT_EMAIL=znichola@42.ch
+PGADMIN_DEFAULT_EMAIL=$USER@42
 PGADMIN_DEFAULT_PASSWORD=$adpassword
 " > .env

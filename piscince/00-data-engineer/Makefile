@@ -24,3 +24,5 @@ env :
 dl_data :
 	./download_data.sh
 
+db :
+	docker exec -it postgres psql -U znichola -d piscineds -h localhost -W
