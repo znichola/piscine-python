@@ -4,7 +4,7 @@ CREATE TABLE data_2022_oct (
     product_id INTEGER NOT NULL,
     price DECIMAL(10, 2) NOT NULL,
     user_id INTEGER NOT NULL,
-    user_session VARCHAR(255) NOT NULL
+    user_session VARCHAR(255)
 );
 
-\copy data_2022_oct FROM /home/data_2022_oct.csv  WITH (FORMAT csv, HEADER);
+-- \copy data_2022_oct FROM /home/data_2022_oct.csv  WITH (FORMAT csv, HEADER);
