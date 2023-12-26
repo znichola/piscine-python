@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+
+  db:
+    container_name: postgres
+    image: postgres:alpine
+    restart: always
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+      - ./subject:/subject
+    environment:
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?error}
+      POSTGRES_DB: ${POSTGRES_DB:?error}
+      POSTGRES_USER: ${POSTGRES_USER:?error}
+
+  pgadmin:
+    container_name: pgadmin4
+    image: dpage/pgadmin4
+    restart: always
+    ports:
+      - "80:80"
+    volumes:
+      - pgadmin-data:/var/lib/pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:?error}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:?error}
+
+volumes:
+  postgres-data:
+  pgadmin-data:
+
+# docker compose up
+# docker exec -it postgres psql -U znichola
+# docker exec -it postgres psql -U znichola -d piscineds -h localhost -W
