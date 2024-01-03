@@ -21,7 +21,7 @@ docker cp ../subject/customer/data_2022_oct.csv postgres:/home/file.csv
 ## PostgreSQL commands
 
 List the tables in the db
-```pqsl
+```psql
 \dt
 ```
 
@@ -51,13 +51,19 @@ SELECT * FROM item WHERE category_code IS NOT NULL LIMIT 10
 ```
 
 Copy a csv file to a table
-```pqsl
+```psql
 COPY data_2022_dec FROM '/subject/customer/data_2022_dec.csv' (FORMAT csv, HEADER);
 ```
 COPY vs /copy Do not confuse COPY with the psql instruction \copy. \copy invokes COPY FROM STDIN or COPY TO STDOUT, and then fetches/stores the data in a file accessible to the psql client. Thus, file accessibility and access rights depend on the client rather than the server when \copy is used.
 `WITH (FORMAT csv, HEADER)`: `FORMAT` used to select csv parsing `HEADER` sets header to true, ignores the first line
 
 Count the number of rown in the table
-```pqsl
+```psql
 SELECT COUNT(*) FROM data_2022_dec;
+```
+
+Create temprary database for testing
+```psql
+CREATE TEMP TABLE temp_data AS
+SELECT * FROM customers;
 ```
