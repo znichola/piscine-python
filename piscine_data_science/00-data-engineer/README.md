@@ -64,6 +64,6 @@ SELECT COUNT(*) FROM data_2022_dec;
 
 Create temprary database for testing
 ```psql
-CREATE TEMP TABLE temp_data AS
+CREATE TEMP TABLE temp_customers AS
 SELECT * FROM customers;
 ```
