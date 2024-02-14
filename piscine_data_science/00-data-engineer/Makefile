@@ -11,7 +11,7 @@ ip :
 CONTAINERS = $(shell docker ps -a -q)
 TIDY=2>/dev/null ; true
 
-fclean : env-clean
+fclean :
 	docker stop       $(CONTAINERS)                  $(TIDY)
 	docker rm         $(CONTAINERS)                  $(TIDY)
 	docker network rm $(shell docker network ls -q)  $(TIDY)

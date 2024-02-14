@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# hack to get it to work on the macs
+realpath() {
+    [[ $1 = /* ]] && echo "$1" || echo "$PWD/${1#./}"
+}
+
 script_path="$(dirname $(realpath $0))"
 source $script_path/../.env
 
