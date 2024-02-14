@@ -1,6 +1,7 @@
 from load_csv import load
 import pandas as pd
 import matplotlib.pyplot as plt
+from matplotlib.ticker import MaxNLocator
 
 
 def main():
@@ -23,8 +24,27 @@ def main():
         {'[kK]': '*1e3', '[mM]': '*1e6', '[bB]': '*1e9', },
         regex=True).map(pd.eval)
 
+    def yaxis_formatter(y, pos) -> str:
+        '''Formats the population data to be human readable'''
+        units = ["", "K", "M", "B"]
+        power = 0
+        while abs(y) >= 1000 and power < 3:
+            y /= 1000
+            power += 1
+        return f"{y:.0f}{units[power]}"
+
     # print(data.head())
     data.plot()
+
+    plt.gca().yaxis.set_major_formatter(yaxis_formatter)
+
+    plt.locator_params(axis="y", nbins="5")
+    ticks = plt.gca().yaxis.get_major_ticks()
+    ticks[1].set_visible(False)
+    ticks[-2].set_visible(False)
+
+    plt.legend(loc="lower right", title="")
+
     plt.xlabel("Year")
     plt.ylabel("Population")
     plt.title("Population Projections")
@@ -32,9 +52,5 @@ def main():
 
 
 if __name__ == "__main__":
-
-    # df = pd.DataFrame({'value': ['3.28M']})
-    # num = pd.to_numeric(df['value'])
-    # print(num)
 
     main()
