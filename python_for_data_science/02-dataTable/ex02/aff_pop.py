@@ -1,7 +1,6 @@
 from load_csv import load
 import pandas as pd
 import matplotlib.pyplot as plt
-from matplotlib.ticker import MaxNLocator
 
 
 def main():
@@ -33,7 +32,6 @@ def main():
             power += 1
         return f"{y:.0f}{units[power]}"
 
-    # print(data.head())
     data.plot()
 
     plt.gca().yaxis.set_major_formatter(yaxis_formatter)
