@@ -26,8 +26,23 @@ def main():
     data["GDP"].replace({'[kK]': '*1e3', '[mM]': '*1e6', '[bB]': '*1e9', },
                         regex=True).map(pd.eval)
 
-    # print(data.head())
+    def formatter(y, pos) -> str:
+        '''Formats the GDP data to be human readable'''
+        units = ["", "K", "M", "B"]
+        power = 0
+        while abs(y) >= 1000 and power < 3:
+            y /= 1000
+            power += 1
+        return f"{y:.0f}{units[power]}"
+
     plt.scatter(data["GDP"], data["LE"])
+
+    plt.gca().set_xscale("log")
+    plt.gca().xaxis.set_major_formatter(formatter)
+
+    plt.gca().set_xticks([300, 1000, 10000])
+    plt.gca().set_xlim(300, 11000)
+
     plt.xlabel("Gross Domestic Product")
     plt.ylabel("Life Expectancy")
     plt.title("1900")
