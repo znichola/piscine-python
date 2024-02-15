@@ -3,7 +3,7 @@ from math import sqrt
 
 def ft_statistics(*args, **kwargs) -> None:
     '''
-    Calculate various statistical properites
+    Calculate various statistical properites:
     mean, median, quartile, std, var
     '''
     def mean(ls: list[int | float]) -> float:
