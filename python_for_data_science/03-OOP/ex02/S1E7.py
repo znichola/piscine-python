@@ -12,9 +12,11 @@ class Baratheon(Character):
         self.hairs = "dark"
 
     def __str__(self) -> str:
+        '''String reprisentation'''
         return super().__str__()
 
     def __repr__(self) -> str:
+        '''Replisentation'''
         repr = tuple([y for x, y in self.__dict__.items() if
                       x not in ["is_alive", "first_name"]])
         return "Vector: " + str(repr)
@@ -44,9 +46,11 @@ class Lannister(Character):
         return Lannister(first_name, is_alive)
 
     def __str__(self) -> str:
+        '''String reprisentation'''
         return super().__str__()
 
     def __repr__(self) -> str:
+        '''Replisentation'''
         repr = tuple([y for x, y in self.__dict__.items() if
                       x not in ["is_alive", "first_name"]])
         return "Vector: " + str(repr)
